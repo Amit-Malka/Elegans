@@ -17,8 +17,18 @@ function read_args(local_project_root, args_path = "$local_project_root/args.tom
     remote_project_root = "$remote_root/$(dist["remote_project_root"])"
 
     ex_dir         = paths["ex_dir"]
+
     contours_dir   = paths["contours_dir"]
     midpoints_dir  = paths["midpoints_dir"]
+
+    
+    if !isdir(contours_dir)
+        mkdir(contours_dir)
+    end
+
+    if !isdir(midpoints_dir)
+        mkdir(midpoints_dir)
+    end
 
     local_ex_path       = normpath(joinpath(local_root, ex_dir))
     local_contours_path = normpath(joinpath(local_root, contours_dir))
